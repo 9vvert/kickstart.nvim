@@ -200,11 +200,6 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 
--- Custom keybinds
-vim.keymap.set('n', '<M-h>', '5h', { desc = 'Move left quickly' })
-vim.keymap.set('n', '<M-l>', '5l', { desc = 'Move right quickly' })
-vim.keymap.set('n', '<M-j>', '5j', { desc = 'Move lower quickly' })
-vim.keymap.set('n', '<M-k>', '5k', { desc = 'Move upper quickly' })
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
 -- vim.keymap.set("n", "<C-S-h>", "<C-w>H", { desc = "Move window to the left" })
 -- vim.keymap.set("n", "<C-S-l>", "<C-w>L", { desc = "Move window to the right" })
@@ -677,19 +672,6 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        clangd = {},
-        gopls = {},
-        pyright = {},
-        rust_analyzer = {},
-        ast_grep = {},
-        asm_lsp = {},
-        ts_ls = {},
-        -- csharp_ls = {},
-        cssls = {},
-        dockerls = {},
-        html = {},
-        -- java_language_server = {},
-        yamlls = {},
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
