@@ -99,10 +99,10 @@ vim.g.have_nerd_font = false
 --  For more options, you can see `:help option-list`
 
 -- Make line numbers default
-vim.o.number = true
--- You can also add relative line numbers, to help with jumping.
---  Experiment for yourself to see if you like it!
--- vim.o.relativenumber = true
+-- vim.o.number = true
+vim.opt.number = true
+vim.opt.relativenumber = true
+vim.o.statuscolumn = '%l%=%s%=%r%s'
 
 -- Enable mouse mode, can be useful for resizing splits for example!
 vim.o.mouse = 'a'
@@ -138,6 +138,7 @@ vim.o.updatetime = 250
 vim.o.timeoutlen = 300
 
 -- Configure how new splits should be opened
+-- [Default Split Window Position]
 vim.o.splitright = true
 vim.o.splitbelow = true
 
@@ -198,6 +199,31 @@ vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left wind
 vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
 vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+
+
+-- Custom keybinds
+vim.keymap.set('n', '<M-h>', '5h', { desc = 'Move left quickly' })
+vim.keymap.set('n', '<M-l>', '5l', { desc = 'Move right quickly' })
+vim.keymap.set('n', '<M-j>', '5j', { desc = 'Move lower quickly' })
+vim.keymap.set('n', '<M-k>', '5k', { desc = 'Move upper quickly' })
+vim.keymap.set('n', '<M-e>', '5<C-e>', { desc = 'Move screen down quickly' })
+vim.keymap.set('n', '<M-y>', '5<C-y>', { desc = 'Move screen up quickly' })
+
+-- use emacs keybinds in insert mode
+vim.keymap.set('i', '<C-f>', '<right>', { desc = 'Move forward' })
+vim.keymap.set('i', '<C-b>', '<left>', { desc = 'Move backward' })
+vim.keymap.set('i', '<C-e>', '<end>', { desc = 'Move to end' })
+vim.keymap.set('i', '<C-a>', '<home>', { desc = 'Move to begin' })
+
+-- bracket and indent
+vim.opt.tabstop = 4
+vim.opt.shiftwidth = 4
+vim.opt.smartindent = true
+vim.keymap.set('i', '(', '()<left>', { desc = 'Move forward' })
+vim.keymap.set('i', '[', '[]<left>', { desc = 'Move backward' })
+vim.keymap.set('i', '{', '{}<left>', { desc = 'Move forward' })
+vim.keymap.set('i', '\'', '\'\'<left>', { desc = 'Move backward' })
+vim.keymap.set('i', '"', '""<left>', { desc = 'Move backward' })
 
 
 -- NOTE: Some terminals have colliding keymaps or are not able to send distinct keycodes
@@ -672,6 +698,17 @@ require('lazy').setup({
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
+<<<<<<< HEAD
+        -- clangd = {},
+        -- gopls = {},
+        -- pyright = {},
+        -- rust_analyzer = {},
+=======
+        clangd = {},
+        gopls = {},
+        pyright = {},
+        rust_analyzer = {},
+>>>>>>> parent of bc28966 (add basic lsp server)
         -- ... etc. See `:help lspconfig-all` for a list of all the pre-configured LSPs
         --
         -- Some languages (like typescript) have entire language plugins that can be useful:
@@ -680,6 +717,17 @@ require('lazy').setup({
         -- But for many setups, the LSP (`ts_ls`) will work just fine
         -- ts_ls = {},
         --
+        ast_grep = {},
+        clangd = {},
+        cmake = {},
+        pyright = {},
+        ruby_lsp = {},
+        rust_analyzer = {},
+        ts_ls = {},
+        gopls = {},
+        yamlls = {},
+        asm_lsp = {},
+        awk_ls = {},
 
         lua_ls = {
           -- cmd = { ... },
